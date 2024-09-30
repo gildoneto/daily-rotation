@@ -163,6 +163,19 @@ document
     }
   });
 
+document
+  .getElementById('resetTableButton')
+  .addEventListener('click', function () {
+    const resultTableBody = document
+      .getElementById('resultTable')
+      .querySelector('tbody');
+    resultTableBody.innerHTML = ''; // Clear the table body
+    const caption = document
+      .getElementById('resultTable')
+      .querySelector('caption');
+    caption.textContent = ''; // Clear the caption
+  });
+
 function parseUnavailableDays(input) {
   const unavailableDays = [];
   const parts = input.split(',');

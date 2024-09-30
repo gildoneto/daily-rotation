@@ -97,7 +97,12 @@ th {
     font-weight: 500;
 }
 
-td {
+
+#resultTable tbody tr:nth-child(odd) {
+    background-color: #f9f9f9;
+}
+
+#resultTable tbody tr:nth-child(even) {
     background-color: #fff;
 }
 

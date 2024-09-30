@@ -92,6 +92,26 @@ document
       .querySelector('tbody');
     resultTableBody.innerHTML = ''; // Clear previous results
 
+    // Set the caption with the selected month and year
+    const monthNames = [
+      'January',
+      'February',
+      'March',
+      'April',
+      'May',
+      'June',
+      'July',
+      'August',
+      'September',
+      'October',
+      'November',
+      'December',
+    ];
+    const caption = document
+      .getElementById('resultTable')
+      .querySelector('caption');
+    caption.textContent = `Rotation of ${monthNames[month - 1]} ${year}`;
+
     const daysInMonth = new Date(year, month, 0).getDate(); // Get number of days in the month
     const weekdays = [
       'Sunday',
@@ -169,7 +189,7 @@ function highlightRowsWithName(name) {
   const rows = document.querySelectorAll('#resultTable tbody tr');
   rows.forEach(row => {
     const nameCell = row.cells[2];
-    if (nameCell.textContent === name) {
+    if (nameCell && nameCell.textContent === name) {
       row.classList.toggle('selected-row');
     }
   });

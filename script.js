@@ -40,22 +40,45 @@ function addNameToList(name) {
 
 document.getElementById('inputForm').addEventListener('submit', function(event) {
     event.preventDefault();
-    
-    const names = [];
+
+    // Validate that at least one name has been added
     const nameListItems = document.getElementById('nameList').children;
+    if (nameListItems.length === 0) {
+        alert("Please add at least one name.");
+        return;
+    }
+
+    // Validate that a month has been selected
+    const month = parseInt(document.getElementById('month').value);
+    if (isNaN(month) || month < 1 || month > 12) {
+        alert("Please select a valid month.");
+        return;
+    }
+
+    // Validate that a year has been selected
+    const year = parseInt(document.getElementById('year').value);
+    if (isNaN(year) || year < 2023 || year > 2100) {
+        alert("Please select a valid year.");
+        return;
+    }
+
+    // Validate that at least one day of the week has been selected
+    const selectedDays = Array.from(document.querySelectorAll('input[name="days"]:checked')).map(input => parseInt(input.value));
+    if (selectedDays.length === 0) {
+        alert("Please select at least one day of the week.");
+        return;
+    }
+
+    // Collect names and their unavailable days
+    const names = [];
     for (let item of nameListItems) {
         const name = item.firstChild.textContent;
         const unavailableDaysInput = item.querySelector('input').value;
-        console.log(`Name: ${name}, Unavailable Days Input: ${unavailableDaysInput}`);
         const unavailableDays = parseUnavailableDays(unavailableDaysInput);
-        console.log(`Parsed Unavailable Days: ${unavailableDays}`);
         names.push({ name, unavailableDays });
     }
 
-    const month = parseInt(document.getElementById('month').value);
-    const year = parseInt(document.getElementById('year').value);
     const resultTableBody = document.getElementById('resultTable').querySelector('tbody');
-    
     resultTableBody.innerHTML = ''; // Clear previous results
 
     const daysInMonth = new Date(year, month, 0).getDate(); // Get number of days in the month
@@ -66,8 +89,8 @@ document.getElementById('inputForm').addEventListener('submit', function(event) 
         const date = new Date(year, month - 1, day);
         const dayOfWeek = date.getDay();
 
-        // Skip Saturday (6), Sunday (0), and Wednesday (3)
-        if (dayOfWeek === 0 || dayOfWeek === 3 || dayOfWeek === 6) {
+        // Skip days not selected by the user
+        if (!selectedDays.includes(dayOfWeek)) {
             continue;
         }
 

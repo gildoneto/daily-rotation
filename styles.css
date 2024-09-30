@@ -78,9 +78,9 @@ li > input[type="text"] {
 }
 
 table {
-    width: 100%;
+    width: auto; /* Ajusta a largura da tabela ao conteúdo */
+    margin: 20px auto; /* Centraliza a tabela */
     border-collapse: collapse;
-    margin-top: 20px;
     background-color: white;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }

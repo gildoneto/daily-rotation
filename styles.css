@@ -81,6 +81,25 @@ li > input[type='text'] {
   margin: 0 10px;
 }
 
+li button {
+  background-color: #dc3545; /* Vermelho */
+  color: white;
+}
+
+li button:hover {
+  background-color: #c82333; /* Vermelho mais escuro */
+}
+
+/* Estilo para o botão "Reset Table" */
+#resetTableButton {
+  background-color: #dc3545; /* Vermelho */
+  color: white;
+}
+
+#resetTableButton:hover {
+  background-color: #c82333; /* Vermelho mais escuro */
+}
+
 table {
   width: auto; /* Ajusta a largura da tabela ao conteúdo */
   margin: 20px auto; /* Centraliza a tabela */

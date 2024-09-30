@@ -101,8 +101,31 @@ td {
     background-color: #fff;
 }
 
+footer {
+    text-align: center;
+    margin-top: 40px;
+    padding: 20px 0;
+    background-color: #f9f9f9;
+    border-top: 1px solid #ccc;
+}
+
+footer p {
+    margin: 0;
+    font-size: 14px;
+    color: #666;
+}
+
+footer a {
+    color: #007BFF;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
 @media (max-width: 600px) {
-    input[type="text"], input[type="number"], button {
+    input[type="text"], input[type="number"], select, button {
         width: 100%;
     }
 

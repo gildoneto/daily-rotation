@@ -34,6 +34,7 @@ select {
   width: 300px;
   max-width: 100%;
   box-sizing: border-box;
+  cursor: pointer;
 }
 
 button {
@@ -157,6 +158,10 @@ fieldset {
   width: 300px;
   max-width: 100%;
   box-sizing: border-box;
+}
+
+fieldset > label {
+  cursor: pointer;
 }
 
 legend {

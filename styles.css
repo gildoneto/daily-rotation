@@ -211,3 +211,28 @@ fieldset label {
     align-items: flex-start;
   }
 }
+
+#toast {
+  position: fixed;
+  top: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #dc3545;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  font-size: 20px;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  z-index: 1000;
+}
+
+#toast.show {
+  opacity: 1;
+}
+
+#toast.hidden {
+  opacity: 0;
+  pointer-events: none;
+}

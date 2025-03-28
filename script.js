@@ -23,8 +23,28 @@ document.getElementById('addNameButton').addEventListener('click', function () {
   }
 });
 
+function showToast(message) {
+  const toast = document.getElementById('toast');
+  toast.textContent = message;
+  toast.classList.remove('hidden');
+  toast.classList.add('show');
+
+  // Remover o toast após 3 segundos
+  setTimeout(() => {
+    toast.classList.remove('show');
+    toast.classList.add('hidden');
+  }, 3000);
+}
+
 function addNameToList(name) {
   const nameList = document.getElementById('nameList');
+
+  // Check if the the name already exists on the list
+  if (document.getElementById(name)) {
+    showToast(`The name "${name}" is already in the list.`);
+    return;
+  }
+  
   const listItem = document.createElement('li');
   listItem.textContent = name;
 
@@ -37,6 +57,7 @@ function addNameToList(name) {
   const unavailableDaysInput = document.createElement('input');
   unavailableDaysInput.type = 'text';
   unavailableDaysInput.placeholder = 'Unavailable days (e.g., [1-10],25)';
+  unavailableDaysInput.id = name;
 
   listItem.appendChild(unavailableDaysInput);
   listItem.appendChild(removeButton);

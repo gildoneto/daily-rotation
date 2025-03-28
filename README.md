@@ -1,7 +1,10 @@
-# Name Distribution
+# Task Rotation Tool
+
+For the **Portuguese version** of this README, click [here](README-pt-BR.md).
 
 [![GitHub](https://img.shields.io/badge/GitHub-Repository-blue)](https://github.com/gildoneto/daily-rotation)
 [![GitHub Pages](https://img.shields.io/badge/GitHub-Pages-brightgreen)](https://gildoneto.github.io/daily-rotation/)
+
 
 ## Description
 
@@ -33,6 +36,26 @@ This project was created by [Gildo Neto](https://github.com/gildoneto).
 
 This project is licensed under the [MIT License](LICENSE).
 
-## Read in Portuguese
+## Useful tips to devs
 
-For the Portuguese version of this README, click [here](README-pt-BR.md).
+- First implement new features on `main`branch
+- Create a new tag and push
+
+```shell
+git tag -a v2.0 -m "Release version 2.0"
+git push origin v2.0
+```
+
+- Go to `gh-pages` branch, merge with `main` and push to deploy
+
+```shell
+git checkout gh-pages
+git merge main
+git push
+```
+
+- Go to [releases](https://github.com/gildoneto/daily-rotation/releases) on github
+- Click on `Draft a new release`
+- Choose a release title
+- Write the changes on Describe input
+- Finally click on `Publish release`
